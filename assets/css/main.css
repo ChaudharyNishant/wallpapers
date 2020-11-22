@@ -1350,7 +1350,7 @@ input, select, textarea {
 			}
 
 			.poptrox-popup .caption {
-				display: none !important;
+				
 			}
 
 			.poptrox-popup .closer,
@@ -1538,7 +1538,7 @@ input, select, textarea {
 
 						#header nav > ul > li a.icon:before {
 							color: #505051;
-							float: right;
+							
 							margin-left: 0.75em;
 						}
 
@@ -1649,6 +1649,7 @@ input, select, textarea {
 				bottom: 1.875em;
 				font-size: 0.8em;
 				left: 2.1875em;
+				right: 2.1875em;
 				margin: 0;
 				position: absolute;
 				z-index: 1;
@@ -2048,3 +2049,13 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
+
+.centered {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	text-align: center;
+}

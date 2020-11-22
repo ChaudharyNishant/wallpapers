@@ -6,12 +6,56 @@
 -->
 <html>
 	<head>
-		<title>Multiverse by HTML5 UP</title>
+		<title>YoG Walls</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
+	
+	<script>
+		function showOrNot()
+		{
+			var noresult = document.getElementById("noresult");
+			var searchQuery = document.getElementById("search").value.toLowerCase().replace(/[\W_]+/g," ").split(" ");
+			console.log(searchQuery);
+			var walls = document.getElementsByClassName("thumb");
+			var i;
+			var count = 0;
+			for(i = 0; i < walls.length; i++)
+			{
+				var tag = walls[i].getAttribute("tags");
+				if(tag == null)
+					tag = "";
+				else
+					tag = tag.toLowerCase();
+				var j;
+				var show = false;
+				for(j = 0; j < searchQuery.length; j++)
+				{
+					if(searchQuery[j] === "" && searchQuery.length > 1)
+						continue;
+					if(tag.search(searchQuery[j]) != -1)
+					{
+						show = true;
+						break;
+					}
+				}
+				if(!show)
+					walls[i].style.display = "none";
+				else
+				{
+					walls[i].style.display = "flex";
+					count = count + 1;
+				}
+			}
+			if(count == 0)
+				noresult.style.display = "block";
+			else
+				noresult.style.display = "none"
+		}
+	</script>
+	
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -22,109 +66,283 @@
 						<h1><a href="index.html"><strong>Multiver</strong> by HTML5 UP</a></h1>
 						<nav>
 							<ul>
-								<li><a href="#footer" class="icon solid fa-info-circle">About</a></li>
+								<li><input type="text" onKeyUp="showOrNot()" name="search" id="search" placeholder="Search" style="height:2.5em" /></li>
+								<li><a href="#footer" class="icon solid fa-info-circle"></a></li>
 							</ul>
 						</nav>
 					</header>
 
 				<!-- Main -->
 					<div id="main">
-						<article class="thumb">
-							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="" /></a>
-							<h2>Magna feugiat lorem</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						<div class="centered" id="noresult">
+							<h2>Uh, ho. Try something else maybe.</h2>
+						</div>
+						<article class="thumb" tags="add some keywords here for search">
+							<a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="01.jpg" /></a>
+							<h2>Wallpaper Name Here</h2>
+							<p>A description can be given here, but try to avoid it. Keep it clean.<br/><a href="images/fulls/01.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/02.jpg" class="image"><img src="images/thumbs/02.jpg" alt="" /></a>
-							<h2>Nisl adipiscing</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="abstract blue dark black amoled 1">
+							<a href="images/fulls/Abs_1.jpg" class="image"><img src="images/thumbs/Abs_1.jpg" alt="Abs_1.jpg" /></a>
+							<h2>Abs 1</h2>
+							<p><a href="images/fulls/Abs_1.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/03.jpg" class="image"><img src="images/thumbs/03.jpg" alt="" /></a>
-							<h2>Tempus aliquam veroeros</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="glitch pink blue 1">
+							<a href="images/fulls/Glitch_1.jpg" class="image"><img src="images/thumbs/Glitch_1.jpg" alt="Glitch_1.jpg" /></a>
+							<h2>Glitch 1</h2>
+							<p><a href="images/fulls/Glitch_1.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/04.jpg" class="image"><img src="images/thumbs/04.jpg" alt="" /></a>
-							<h2>Aliquam ipsum sed dolore</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="glitch light pink blue 2">
+							<a href="images/fulls/Glitch_2.jpg" class="image"><img src="images/thumbs/Glitch_2.jpg" alt="Glitch_2.jpg" /></a>
+							<h2>Glitch 2</h2>
+							<p><a href="images/fulls/Glitch_2.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/05.jpg" class="image"><img src="images/thumbs/05.jpg" alt="" /></a>
-							<h2>Cursis aliquam nisl</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="glitch dark black gray grey grayscale 3">
+							<a href="images/fulls/Glitch_3.jpg" class="image"><img src="images/thumbs/Glitch_3.jpg" alt="Glitch_3.jpg" /></a>
+							<h2>Glitch 3</h2>
+							<p><a href="images/fulls/Glitch_3.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/06.jpg" class="image"><img src="images/thumbs/06.jpg" alt="" /></a>
-							<h2>Sed consequat phasellus</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="glitch light pink blue 4">
+							<a href="images/fulls/Glitch_4.jpg" class="image"><img src="images/thumbs/Glitch_4.jpg" alt="Glitch_4.jpg" /></a>
+							<h2>Glitch 4</h2>
+							<p><a href="images/fulls/Glitch_4.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/07.jpg" class="image"><img src="images/thumbs/07.jpg" alt="" /></a>
-							<h2>Mauris id tellus arcu</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="glitch pink blue 5">
+							<a href="images/fulls/Glitch_5.jpg" class="image"><img src="images/thumbs/Glitch_5.jpg" alt="Glitch_5.jpg" /></a>
+							<h2>Glitch 5</h2>
+							<p><a href="images/fulls/Glitch_5.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/08.jpg" class="image"><img src="images/thumbs/08.jpg" alt="" /></a>
-							<h2>Nunc vehicula id nulla</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="glitch pink blue 6">
+							<a href="images/fulls/Glitch_6.jpg" class="image"><img src="images/thumbs/Glitch_6.jpg" alt="Glitch_6.jpg" /></a>
+							<h2>Glitch 6</h2>
+							<p><a href="images/fulls/Glitch_6.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/09.jpg" class="image"><img src="images/thumbs/09.jpg" alt="" /></a>
-							<h2>Neque et faucibus viverra</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="glitch white black grayscale 7">
+							<a href="images/fulls/Glitch_7.jpg" class="image"><img src="images/thumbs/Glitch_7.jpg" alt="Glitch_7.jpg" /></a>
+							<h2>Glitch 7</h2>
+							<p><a href="images/fulls/Glitch_7.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/10.jpg" class="image"><img src="images/thumbs/10.jpg" alt="" /></a>
-							<h2>Mattis ante fermentum</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="gradient black amoled blue 1">
+							<a href="images/fulls/Gradient_1.png" class="image"><img src="images/thumbs/Gradient_1.jpg" alt="Gradient_1.jpg" /></a>
+							<h2>Gradient 1</h2>
+							<p><a href="images/fulls/Gradient_1.png" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/11.jpg" class="image"><img src="images/thumbs/11.jpg" alt="" /></a>
-							<h2>Sed ac elementum arcu</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="gradient light blue 2">
+							<a href="images/fulls/Gradient_2.png" class="image"><img src="images/thumbs/Gradient_2.jpg" alt="Gradient_2.jpg" /></a>
+							<h2>Gradient 2</h2>
+							<p><a href="images/fulls/Gradient_2.png" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/12.jpg" class="image"><img src="images/thumbs/12.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="gradient pink purple 3">
+							<a href="images/fulls/Gradient_3.png" class="image"><img src="images/thumbs/Gradient_3.jpg" alt="Gradient_3.jpg" /></a>
+							<h2>Gradient 3</h2>
+							<p><a href="images/fulls/Gradient_3.png" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/69288_Glitch.jpg" class="image"><img src="images/thumbs/69288_Glitch.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="mickey yellow cute 1">
+							<a href="images/fulls/Mickey_1.png" class="image"><img src="images/thumbs/Mickey_1.jpg" alt="Mickey_1.jpg" /></a>
+							<h2>Mickey 1</h2>
+							<p><a href="images/fulls/Mickey_1.png" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/69288_Glitch4.jpg" class="image"><img src="images/thumbs/69288_Glitch4.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="mickey red pink cute 2">
+							<a href="images/fulls/Mickey_2.png" class="image"><img src="images/thumbs/Mickey_2.jpg" alt="Mickey_2.jpg" /></a>
+							<h2>Mickey 2</h2>
+							<p><a href="images/fulls/Mickey_2.png" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/69288_Glitch6.jpg" class="image"><img src="images/thumbs/69288_Glitch6.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="mickey blue 3">
+							<a href="images/fulls/Mickey_3.png" class="image"><img src="images/thumbs/Mickey_3.jpg" alt="Mickey_3.jpg" /></a>
+							<h2>Mickey 3</h2>
+							<p><a href="images/fulls/Mickey_3.png" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/69288_Glitch7.jpg" class="image"><img src="images/thumbs/69288_Glitch7.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="mirror pink blue 1">
+							<a href="images/fulls/Mirror_1.jpg" class="image"><img src="images/thumbs/Mirror_1.jpg" alt="Mirror_1.jpg" /></a>
+							<h2>Mirror 1</h2>
+							<p><a href="images/fulls/Mirror_1.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/69288_Glitch8.jpg" class="image"><img src="images/thumbs/69288_Glitch8.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="mirror white light blue 2">
+							<a href="images/fulls/Mirror_2.jpg" class="image"><img src="images/thumbs/Mirror_2.jpg" alt="Mirror_2.jpg" /></a>
+							<h2>Mirror 2</h2>
+							<p><a href="images/fulls/Mirror_2.jpg" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/69288_Glitch9.jpg" class="image"><img src="images/thumbs/69288_Glitch9.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="mirror white light 3">
+							<a href="images/fulls/Mirror_3.png" class="image"><img src="images/thumbs/Mirror_3.jpg" alt="Mirror_3.jpg" /></a>
+							<h2>Mirror 3</h2>
+							<p><a href="images/fulls/Mirror_3.png" download>Download</a></p>
 						</article>
-						<article class="thumb">
-							<a href="images/fulls/69288_Glitch10.jpg" class="image"><img src="images/thumbs/69288_Glitch10.jpg" alt="" /></a>
-							<h2>Vehicula id nulla dignissim</h2>
-							<p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
+						
+						<article class="thumb" tags="mirror dark amoled 4">
+							<a href="images/fulls/Mirror_4.png" class="image"><img src="images/thumbs/Mirror_4.jpg" alt="Mirror_4.jpg" /></a>
+							<h2>Mirror 4</h2>
+							<p><a href="images/fulls/Mirror_4.png" download>Download</a></p>
 						</article>
+						
+						<article class="thumb" tags="mirror dark amoled 5">
+							<a href="images/fulls/Mirror_5.jpg" class="image"><img src="images/thumbs/Mirror_5.jpg" alt="Mirror_1.jpg" /></a>
+							<h2>Mirror 5</h2>
+							<p><a href="images/fulls/Mirror_5.jpg" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="mirror dark amoled 6">
+							<a href="images/fulls/Mirror_6.jpg" class="image"><img src="images/thumbs/Mirror_6.jpg" alt="Mirror_6.jpg" /></a>
+							<h2>Mirror 6</h2>
+							<p><a href="images/fulls/Mirror_6.jpg" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="mirror dark amoled 7">
+							<a href="images/fulls/Mirror_7.png" class="image"><img src="images/thumbs/Mirror_7.jpg" alt="Mirror_7.jpg" /></a>
+							<h2>Mirror 7</h2>
+							<p><a href="images/fulls/Mirror_7.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="mirror blue 8">
+							<a href="images/fulls/Mirror_8.jpg" class="image"><img src="images/thumbs/Mirror_8.jpg" alt="Mirror_8.jpg" /></a>
+							<h2>Mirror 8</h2>
+							<p><a href="images/fulls/Mirror_8.jpg" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="mirror purple 9">
+							<a href="images/fulls/Mirror_9.jpg" class="image"><img src="images/thumbs/Mirror_9.jpg" alt="Mirror_9.jpg" /></a>
+							<h2>Mirror 9</h2>
+							<p><a href="images/fulls/Mirror_9.jpg" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="mirror amoled blue 10">
+							<a href="images/fulls/Mirror_10.jpg" class="image"><img src="images/thumbs/Mirror_10.jpg" alt="Mirror_10.jpg" /></a>
+							<h2>Mirror 10</h2>
+							<p><a href="images/fulls/Mirror_10.jpg" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="pink paper 1">
+							<a href="images/fulls/Pink_Paper_1.png" class="image"><img src="images/thumbs/Pink_Paper_1.jpg" alt="Pink_Paper_1.jpg" /></a>
+							<h2>Pink Paper 1</h2>
+							<p><a href="images/fulls/Pink_Paper_1.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="pink paper 2">
+							<a href="images/fulls/Pink_Paper_2.png" class="image"><img src="images/thumbs/Pink_Paper_2.jpg" alt="Pink_Paper_2.jpg" /></a>
+							<h2>Pink Paper 2</h2>
+							<p><a href="images/fulls/Pink_Paper_2.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="qwerty dark black gray grey grayscale 1">
+							<a href="images/fulls/Qwerty_1.png" class="image"><img src="images/thumbs/Qwerty_1.jpg" alt="Qwerty_1.jpg" /></a>
+							<h2>Qwerty 1</h2>
+							<p><a href="images/fulls/Qwerty_1.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="sand blue 1">
+							<a href="images/fulls/Sand_1.png" class="image"><img src="images/thumbs/Sand_1.jpg" alt="Sand_1.jpg" /></a>
+							<h2>Sand 1</h2>
+							<p><a href="images/fulls/Sand_1.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="sand blue gray grey 2">
+							<a href="images/fulls/Sand_2.png" class="image"><img src="images/thumbs/Sand_2.jpg" alt="Sand_2.jpg" /></a>
+							<h2>Sand 2</h2>
+							<p><a href="images/fulls/Sand_2.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="sand gray grey 3">
+							<a href="images/fulls/Sand_3.png" class="image"><img src="images/thumbs/Sand_3.jpg" alt="Sand_3.jpg" /></a>
+							<h2>Sand 3</h2>
+							<p><a href="images/fulls/Sand_3.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="sand purple violet 4">
+							<a href="images/fulls/Sand_4.png" class="image"><img src="images/thumbs/Sand_4.jpg" alt="Sand_4.jpg" /></a>
+							<h2>Sand 4</h2>
+							<p><a href="images/fulls/Sand_4.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="vynyl dark amoled black 1">
+							<a href="images/fulls/Vynyl_1.png" class="image"><img src="images/thumbs/Vynyl_1.jpg" alt="Vynyl_1.jpg" /></a>
+							<h2>Vynyl 1</h2>
+							<p><a href="images/fulls/Vynyl_1.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="vynyl dark amoled black 2">
+							<a href="images/fulls/Vynyl_2.png" class="image"><img src="images/thumbs/Vynyl_2.jpg" alt="Vynyl_2.jpg" /></a>
+							<h2>Vynyl 2</h2>
+							<p><a href="images/fulls/Vynyl_2.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="water blue black amoled 1">
+							<a href="images/fulls/Water_1.png" class="image"><img src="images/thumbs/Water_1.jpg" alt="Water_1.jpg" /></a>
+							<h2>Water 1</h2>
+							<p><a href="images/fulls/Water_1.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="water light blue 2">
+							<a href="images/fulls/Water_2.png" class="image"><img src="images/thumbs/Water_2.jpg" alt="Water_2.jpg" /></a>
+							<h2>Water 2</h2>
+							<p><a href="images/fulls/Water_2.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="water green black amoled 3">
+							<a href="images/fulls/Water_3.png" class="image"><img src="images/thumbs/Water_3.jpg" alt="Water_3.jpg" /></a>
+							<h2>Water 3</h2>
+							<p><a href="images/fulls/Water_3.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="water blue 4">
+							<a href="images/fulls/Water_4.png" class="image"><img src="images/thumbs/Water_4.jpg" alt="Water_4.jpg" /></a>
+							<h2>Water 4</h2>
+							<p><a href="images/fulls/Water_4.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="water dark black 5">
+							<a href="images/fulls/Water_5.png" class="image"><img src="images/thumbs/Water_5.jpg" alt="Water_5.jpg" /></a>
+							<h2>Water 5</h2>
+							<p><a href="images/fulls/Water_5.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="water blue black amoled 6">
+							<a href="images/fulls/Water_6.png" class="image"><img src="images/thumbs/Water_6.jpg" alt="Water_6.jpg" /></a>
+							<h2>Water 6</h2>
+							<p><a href="images/fulls/Water_6.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="waveshits wave pink blue purple 1">
+							<a href="images/fulls/Waveshits_1.png" class="image"><img src="images/thumbs/Waveshits_1.jpg" alt="Waveshits_1.jpg" /></a>
+							<h2>Waveshits 1</h2>
+							<p><a href="images/fulls/Waveshits_1.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="waveshits wave blue 2">
+							<a href="images/fulls/Waveshits_2.png" class="image"><img src="images/thumbs/Waveshits_2.jpg" alt="Waveshits_2.jpg" /></a>
+							<h2>Waveshits 2</h2>
+							<p><a href="images/fulls/Waveshits_2.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="waveshits wave blue 3">
+							<a href="images/fulls/Waveshits_3.png" class="image"><img src="images/thumbs/Waveshits_3.jpg" alt="Waveshits_3.jpg" /></a>
+							<h2>Waveshits 3</h2>
+							<p><a href="images/fulls/Waveshits_3.png" download>Download</a></p>
+						</article>
+						
+						<article class="thumb" tags="waveshits wave blue 4">
+							<a href="images/fulls/Waveshits_4.png" class="image"><img src="images/thumbs/Waveshits_4.jpg" alt="Waveshits_4.jpg" /></a>
+							<h2>Waveshits 4</h2>
+							<p><a href="images/fulls/Waveshits_4.png" download>Download</a></p>
+						</article>
+						
 					</div>
+					
 
 				<!-- Footer -->
 					<footer id="footer" class="panel">
